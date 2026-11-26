@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.0.1 (2026-11-27)
+
+- The skill makes its temporary directory with the name prefix `spellwarden-scan-`, and the Claude Code hook no longer asks when the skill writes its scan copy of an MCP server entry (`.mcp.json`) there. Still runs the scanner `spellwarden==1.24.0`.
+- The README says what the hook reads: the tool call, from which it runs nothing.
+
 ## 1.0.0 (2026-11-26)
 
 - First release: the `scan-before-install` skill for Claude Code and Gemini CLI, the Gemini CLI commands `/spellwarden:scan` and `/spellwarden:workstation`, and the Claude Code confirmation hook for installs Claude starts. Runs the scanner `spellwarden==1.24.0`.

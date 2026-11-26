@@ -3,7 +3,7 @@ name: scan-before-install
 description: Use before installing or enabling an agent skill, a Claude Code plugin or marketplace, a Gemini CLI extension or an MCP server, before adding a server to .mcp.json or another MCP client configuration, or when the user asks to check the agent setup of this machine. Runs the open-source Spellwarden scanner on this machine and reports what it found, so the user can decide. Requests such as "check this skill before I install it", "is this MCP server safe to add", "scan this plugin" or "check my agent setup".
 license: Apache-2.0
 metadata:
-  version: 1.0.0
+  version: 1.0.1
   author: Spellwarden
   scanner: spellwarden==1.24.0
 ---
@@ -25,7 +25,7 @@ If neither `uv` nor `pipx` is installed, tell the user and stop. Do not install 
 
 ## 2. Get the content onto this machine
 
-Scan the content before it is installed, from a new temporary directory:
+Scan the content before it is installed, from a new temporary directory whose name starts with `spellwarden-scan-` (for example `mktemp -d -t spellwarden-scan-XXXXXX`):
 
 - **A skill, plugin, marketplace or extension in a git repository:** `git clone --depth 1 <repository URL> <temporary directory>`, then scan that directory. For a marketplace, scan the marketplace repository: the scanner reads its plugins too.
 - **A folder already on this machine:** scan the folder.
