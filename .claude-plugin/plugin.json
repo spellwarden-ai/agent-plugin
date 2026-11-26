@@ -1,0 +1,33 @@
+{
+  "name": "spellwarden",
+  "displayName": "Spellwarden scanner",
+  "version": "1.0.0",
+  "description": "Scans agent skills, plugins, marketplaces and MCP servers with the open-source Spellwarden scanner on your machine before you install them, and asks you to confirm installs Claude starts.",
+  "author": {
+    "name": "Spellwarden",
+    "url": "https://spellwarden.ai?utm_source=claude-plugin-directory&utm_medium=listing&utm_campaign=agent-plugin-2026-11&utm_content=author"
+  },
+  "homepage": "https://spellwarden.ai/docs/agent-plugin?utm_source=claude-plugin-directory&utm_medium=listing&utm_campaign=agent-plugin-2026-11&utm_content=homepage",
+  "repository": "https://github.com/spellwarden-ai/agent-plugin",
+  "license": "Apache-2.0",
+  "keywords": [
+    "security",
+    "skills",
+    "mcp",
+    "plugins",
+    "scanner",
+    "supply-chain"
+  ],
+  "icon": "./assets/icon.png",
+  "documentationUrl": "https://spellwarden.ai/docs/agent-plugin?utm_source=claude-plugin-directory&utm_medium=listing&utm_campaign=agent-plugin-2026-11&utm_content=docs",
+  "supportUrl": "https://github.com/spellwarden-ai/agent-plugin/issues",
+  "privacyPolicyUrl": "https://spellwarden.ai/privacy-policy?utm_source=claude-plugin-directory&utm_medium=listing&utm_campaign=agent-plugin-2026-11&utm_content=privacy",
+  "termsOfServiceUrl": "https://spellwarden.ai/terms-and-conditions?utm_source=claude-plugin-directory&utm_medium=listing&utm_campaign=agent-plugin-2026-11&utm_content=terms",
+  "network": {
+    "hosts": [
+      "pypi.org",
+      "files.pythonhosted.org"
+    ]
+  },
+  "hooks": "./claude/hooks.json"
+}

@@ -1,0 +1,39 @@
+name: check
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  plugin:
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1  # v7.0.1
+        with:
+          persist-credentials: false
+      - name: Check versions, the scanner pin and the hook
+        run: make check
+      - name: Validate the Gemini CLI extension
+        run: npx --yes @google/gemini-cli@0.71.1 extensions validate .
+
+  scan:
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: read
+      security-events: write
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1  # v7.0.1
+        with:
+          persist-credentials: false
+      - name: Scan with the Spellwarden action
+        uses: spellwarden-ai/scan@b521a08c3a40f589f596df17535c3fb2a4747096  # v1.24.0
+        with:
+          fail-on: low
+          comment: "false"
+          telemetry: "false"
+          sarif-upload: ${{ github.event_name == 'push' }}

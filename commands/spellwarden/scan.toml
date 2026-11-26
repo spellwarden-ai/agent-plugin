@@ -1,0 +1,6 @@
+description = "Scan a skill, extension, plugin or MCP server with Spellwarden before you install it"
+prompt = """
+Use the scan-before-install skill to scan this with the Spellwarden scanner, and report the result as the skill describes: {{args}}
+
+If nothing is named above, scan the current workspace directory.
+"""

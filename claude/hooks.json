@@ -1,0 +1,72 @@
+{
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "if": "Bash(claude plugin install *)",
+            "command": "\"${CLAUDE_PLUGIN_ROOT}/claude/ask-before-install.sh\"",
+            "timeout": 5,
+            "onFailure": "continue"
+          },
+          {
+            "type": "command",
+            "if": "Bash(claude plugin marketplace add *)",
+            "command": "\"${CLAUDE_PLUGIN_ROOT}/claude/ask-before-install.sh\"",
+            "timeout": 5,
+            "onFailure": "continue"
+          },
+          {
+            "type": "command",
+            "if": "Bash(claude mcp add *)",
+            "command": "\"${CLAUDE_PLUGIN_ROOT}/claude/ask-before-install.sh\"",
+            "timeout": 5,
+            "onFailure": "continue"
+          },
+          {
+            "type": "command",
+            "if": "Bash(claude mcp add-json *)",
+            "command": "\"${CLAUDE_PLUGIN_ROOT}/claude/ask-before-install.sh\"",
+            "timeout": 5,
+            "onFailure": "continue"
+          },
+          {
+            "type": "command",
+            "if": "Bash(npx skills add *)",
+            "command": "\"${CLAUDE_PLUGIN_ROOT}/claude/ask-before-install.sh\"",
+            "timeout": 5,
+            "onFailure": "continue"
+          },
+          {
+            "type": "command",
+            "if": "Bash(gemini extensions install *)",
+            "command": "\"${CLAUDE_PLUGIN_ROOT}/claude/ask-before-install.sh\"",
+            "timeout": 5,
+            "onFailure": "continue"
+          }
+        ]
+      },
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "if": "Edit(**/.mcp.json)",
+            "command": "\"${CLAUDE_PLUGIN_ROOT}/claude/ask-before-install.sh\"",
+            "timeout": 5,
+            "onFailure": "continue"
+          },
+          {
+            "type": "command",
+            "if": "Write(**/.mcp.json)",
+            "command": "\"${CLAUDE_PLUGIN_ROOT}/claude/ask-before-install.sh\"",
+            "timeout": 5,
+            "onFailure": "continue"
+          }
+        ]
+      }
+    ]
+  }
+}

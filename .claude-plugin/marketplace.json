@@ -1,0 +1,15 @@
+{
+  "name": "spellwarden",
+  "description": "The Spellwarden scanner plugin: scan agent skills, plugins and MCP servers before you install them.",
+  "owner": {
+    "name": "Spellwarden",
+    "url": "https://github.com/spellwarden-ai"
+  },
+  "plugins": [
+    {
+      "name": "spellwarden",
+      "source": "./",
+      "description": "Scans agent skills, plugins, marketplaces and MCP servers with the open-source Spellwarden scanner on your machine before you install them, and asks you to confirm installs Claude starts."
+    }
+  ]
+}

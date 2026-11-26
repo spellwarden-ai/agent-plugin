@@ -1,0 +1,4 @@
+description = "Scan this machine's agent setup (skills, extensions, MCP servers, hooks) with Spellwarden"
+prompt = """
+Use the scan-before-install skill to scan this machine's agent setup with `scan --user`, and report the result per client as the skill describes.
+"""
