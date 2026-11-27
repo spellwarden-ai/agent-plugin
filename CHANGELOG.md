@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.1.0 (2026-11-27)
+
+- Claude Code: the marketplace now holds two plugins. `spellwarden` (`plugins/spellwarden`) is the scanner skill alone, the version submitted to the Claude plugin directory, which accepts no hooks from organisations it hasn't verified. The confirmation hook moves to the optional `spellwarden-guard` plugin (`plugins/spellwarden-guard`), and its command now names its interpreter (`sh`). Install `spellwarden-guard@spellwarden` to keep the hook. Still runs the scanner `spellwarden==1.24.0`.
+- Gemini CLI: no change beyond the version.
+
 ## 1.0.1 (2026-11-27)
 
 - The skill makes its temporary directory with the name prefix `spellwarden-scan-`, and the Claude Code hook no longer asks when the skill writes its scan copy of an MCP server entry (`.mcp.json`) there. Still runs the scanner `spellwarden==1.24.0`.

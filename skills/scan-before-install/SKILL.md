@@ -3,7 +3,7 @@ name: scan-before-install
 description: Use before installing or enabling an agent skill, a Claude Code plugin or marketplace, a Gemini CLI extension or an MCP server, before adding a server to .mcp.json or another MCP client configuration, or when the user asks to check the agent setup of this machine. Runs the open-source Spellwarden scanner on this machine and reports what it found, so the user can decide. Requests such as "check this skill before I install it", "is this MCP server safe to add", "scan this plugin" or "check my agent setup".
 license: Apache-2.0
 metadata:
-  version: 1.0.1
+  version: 1.1.0
   author: Spellwarden
   scanner: spellwarden==1.24.0
 ---

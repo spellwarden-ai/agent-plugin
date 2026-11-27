@@ -1,0 +1,19 @@
+{
+  "name": "spellwarden-guard",
+  "displayName": "Spellwarden install guard",
+  "version": "1.1.0",
+  "description": "Asks you to confirm before Claude itself installs a plugin, marketplace, skill or MCP server, or edits a .mcp.json file, and suggests a Spellwarden scan first. Pairs with the spellwarden plugin.",
+  "author": {
+    "name": "Spellwarden",
+    "url": "https://spellwarden.ai?utm_source=claude-plugin-directory&utm_medium=listing&utm_campaign=agent-plugin-2026-11&utm_content=author"
+  },
+  "homepage": "https://spellwarden.ai/docs/agent-plugin?utm_source=claude-plugin&utm_medium=manifest&utm_campaign=agent-plugin-2026-11&utm_content=guard",
+  "repository": "https://github.com/spellwarden-ai/agent-plugin",
+  "license": "Apache-2.0",
+  "keywords": [
+    "security",
+    "hooks",
+    "mcp",
+    "plugins"
+  ]
+}

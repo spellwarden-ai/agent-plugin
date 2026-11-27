@@ -8,8 +8,13 @@
   "plugins": [
     {
       "name": "spellwarden",
-      "source": "./",
-      "description": "Scans agent skills, plugins, marketplaces and MCP servers with the open-source Spellwarden scanner on your machine before you install them, and asks you to confirm installs Claude starts."
+      "source": "./plugins/spellwarden",
+      "description": "Scans agent skills, plugins, marketplaces and MCP servers with the open-source Spellwarden scanner on your machine before you install them, and reports what it found so you can decide."
+    },
+    {
+      "name": "spellwarden-guard",
+      "source": "./plugins/spellwarden-guard",
+      "description": "Asks you to confirm before Claude itself installs a plugin, marketplace, skill or MCP server, or edits a .mcp.json file, and suggests a Spellwarden scan first. Pairs with the spellwarden plugin."
     }
   ]
 }

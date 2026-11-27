@@ -1,6 +1,6 @@
 #!/bin/sh
-# Checks claude/ask-before-install.sh against tool calls that must and must not ask.
-hook="$(dirname "$0")/../claude/ask-before-install.sh"
+# Checks plugins/spellwarden-guard/hooks/ask-before-install.sh against tool calls that must and must not ask.
+hook="$(dirname "$0")/../plugins/spellwarden-guard/hooks/ask-before-install.sh"
 fail=0
 check() { # expected (ask|none), stdin JSON
   out=$(printf '%s' "$2" | sh "$hook")
