@@ -24,7 +24,7 @@ Ask the agent before an install, for example "Check the skill in github.com/exam
 
 ## What it runs, sends and fetches
 
-- **The scanner.** `uvx spellwarden==1.25.0`, or `pipx run --spec spellwarden==1.25.0 spellwarden`. The first run downloads the `spellwarden` package and its dependencies from PyPI (`pypi.org` and `files.pythonhosted.org`). Run on your machine, the scanner sends nothing anywhere: its usage ping runs only in CI.
+- **The scanner.** `uvx spellwarden==1.26.0`, or `pipx run --spec spellwarden==1.26.0 spellwarden`. The first run downloads the `spellwarden` package and its dependencies from PyPI (`pypi.org` and `files.pythonhosted.org`). Run on your machine, the scanner sends nothing anywhere: its usage ping runs only in CI.
 - **The content you asked to check.** For a repository, the agent runs `git clone --depth 1` of the address you gave into a temporary directory and deletes it afterwards.
 - **A probe, only if you agree.** For a remote MCP server, the agent offers `--probe`, which connects to that server's address without credentials to read its tool list and sign-in metadata.
 - **Never by default:** `--analyze`, which sends content to a model endpoint you name, and `--upload`, which sends results to a Spellwarden organisation.

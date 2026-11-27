@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.4.0 (2026-11-27)
+
+- Runs the scanner `spellwarden==1.26.0` (68 rules, the same as 1.25.0), up from 1.25.0. The scan's findings are unchanged; 1.26.0 adds links to the rule pages in its Markdown report, which the skill does not use. The repository's own CI scan uses the Spellwarden action v1.26.0.
+
 ## 1.3.0 (2026-11-27)
 
 - Cursor: a Cursor plugin, `spellwarden` (`plugins/spellwarden-cursor`, listed in `.cursor-plugin/marketplace.json`), with the same `scan-before-install` skill. Still runs the scanner `spellwarden==1.25.0`.
