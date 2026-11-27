@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.3.0 (2026-11-27)
+
+- Cursor: a Cursor plugin, `spellwarden` (`plugins/spellwarden-cursor`, listed in `.cursor-plugin/marketplace.json`), with the same `scan-before-install` skill. Still runs the scanner `spellwarden==1.25.0`.
+
 ## 1.2.0 (2026-11-27)
 
 - Runs the scanner `spellwarden==1.25.0` (68 rules), up from 1.24.0. The repository's own CI scan uses the Spellwarden action v1.25.0.

@@ -1,0 +1,17 @@
+{
+  "name": "spellwarden",
+  "owner": {
+    "name": "Spellwarden",
+    "email": "hello@spellwarden.ai"
+  },
+  "metadata": {
+    "description": "The Spellwarden scanner plugin: scan agent skills, plugins and MCP servers before you install them."
+  },
+  "plugins": [
+    {
+      "name": "spellwarden",
+      "source": "plugins/spellwarden-cursor",
+      "description": "Scans agent skills, plugins, marketplaces and MCP servers with the open-source Spellwarden scanner on your machine before you install them, and reports what it found so you can decide."
+    }
+  ]
+}

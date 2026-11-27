@@ -1,7 +1,7 @@
 {
   "name": "spellwarden",
   "displayName": "Spellwarden scanner",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "description": "Scans agent skills, plugins, marketplaces and MCP servers with the open-source Spellwarden scanner on your machine before you install them, and reports what it found so you can decide.",
   "author": {
     "name": "Spellwarden",

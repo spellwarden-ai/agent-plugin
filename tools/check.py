@@ -11,11 +11,13 @@ root = pathlib.Path(__file__).resolve().parent.parent
 problems = []
 
 plugin = json.loads((root / "plugins/spellwarden/.claude-plugin/plugin.json").read_text())
+cursor = json.loads((root / "plugins/spellwarden-cursor/.cursor-plugin/plugin.json").read_text())
+cursor_market = json.loads((root / ".cursor-plugin/marketplace.json").read_text())
 guard = json.loads((root / "plugins/spellwarden-install-guard/.claude-plugin/plugin.json").read_text())
 gemini = json.loads((root / "gemini-extension.json").read_text())
 market = json.loads((root / ".claude-plugin/marketplace.json").read_text())
 skill = (root / "skills/scan-before-install/SKILL.md").read_text()
-readme = (root / "README.md").read_text() + (root / "plugins/spellwarden/README.md").read_text()
+readme = (root / "README.md").read_text() + (root / "plugins/spellwarden/README.md").read_text() + (root / "plugins/spellwarden-cursor/README.md").read_text()
 changelog = (root / "CHANGELOG.md").read_text()
 
 version = plugin["version"]
@@ -24,6 +26,7 @@ first_entry = re.search(r"^## (\S+) ", changelog, re.M)
 for where, value in [
     ("gemini-extension.json version", gemini["version"]),
     ("spellwarden-install-guard plugin.json version", guard["version"]),
+    ("Cursor plugin.json version", cursor["version"]),
     ("SKILL.md metadata.version", skill_version and skill_version.group(1)),
     ("CHANGELOG.md first entry", first_entry and first_entry.group(1)),
 ]:
@@ -39,6 +42,12 @@ if plugin["name"] != gemini["name"] or [(p["name"], p["source"]) for p in market
 # holds only Markdown, its manifest, its icon and the license. Gemini CLI reads skills/ at the root.
 if (root / "plugins/spellwarden/skills/scan-before-install/SKILL.md").read_text() != skill:
     problems.append("plugins/spellwarden/skills/scan-before-install/SKILL.md differs from skills/scan-before-install/SKILL.md")
+if (root / "plugins/spellwarden-cursor/skills/scan-before-install/SKILL.md").read_text() != skill:
+    problems.append("plugins/spellwarden-cursor/skills/scan-before-install/SKILL.md differs from skills/scan-before-install/SKILL.md")
+if cursor["name"] != plugin["name"] or [(p["name"], p["source"]) for p in cursor_market["plugins"]] != [(cursor["name"], "plugins/spellwarden-cursor")]:
+    problems.append("Cursor plugin name or .cursor-plugin/marketplace.json source differs")
+if (root / "plugins/spellwarden/.cursor-plugin").exists():
+    problems.append("plugins/spellwarden is the Claude directory folder: keep Cursor's manifest out of it")
 allowed = {".claude-plugin/plugin.json", "README.md", "LICENSE", "assets/icon.png", "skills/scan-before-install/SKILL.md"}
 present = {str(f.relative_to(root / "plugins/spellwarden")) for f in (root / "plugins/spellwarden").rglob("*") if f.is_file()}
 if present != allowed:

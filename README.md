@@ -1,10 +1,10 @@
-# Spellwarden scanner for Claude Code and Gemini CLI
+# Spellwarden scanner for Claude Code, Gemini CLI and Cursor
 
 Check an agent skill, plugin, marketplace, extension or MCP server before you install it. This plugin teaches your agent to run the open-source [Spellwarden scanner](https://github.com/spellwarden-ai/spellwarden) (Apache-2.0) on the content first, on your own machine, and to tell you what it found so you can decide.
 
 The scanner checks skills, Claude Code plugins and marketplaces, hooks, MCP client configurations, instruction files such as `AGENTS.md`, `CLAUDE.md` and `GEMINI.md`, and A2A agent cards against its published rules, each mapped to the OWASP lists for agents and MCP. It reads files and never runs what it reads. A passed scan means that no rule found a problem; it does not prove the content is safe.
 
-The same repository is a Gemini CLI extension (at its root) and a Claude Code marketplace with two plugins: `spellwarden`, the scanner skill (`plugins/spellwarden`), and `spellwarden-install-guard`, an optional confirmation hook (`plugins/spellwarden-install-guard`).
+The same repository is a Gemini CLI extension (at its root), a Cursor plugin (`plugins/spellwarden-cursor`, listed in `.cursor-plugin/marketplace.json`) and a Claude Code marketplace with two plugins: `spellwarden`, the scanner skill (`plugins/spellwarden`), and `spellwarden-install-guard`, an optional confirmation hook (`plugins/spellwarden-install-guard`).
 
 ## Install
 
@@ -24,6 +24,10 @@ gemini extensions install https://github.com/spellwarden-ai/agent-plugin
 
 You also need [uv](https://docs.astral.sh/uv/) or [pipx](https://pipx.pypa.io/) on your machine. The plugin uses whichever is installed to run the scanner.
 
+**Cursor**
+
+From the Cursor Marketplace: open **Customize**, search for **Spellwarden** and select **Install**. Before the listing is live, copy `plugins/spellwarden-cursor` into `~/.cursor/plugins/local/spellwarden` and reload the window; [its README](plugins/spellwarden-cursor/README.md) has the commands.
+
 ## Use it
 
 Ask your agent before an install, for example:
@@ -39,6 +43,7 @@ Or run the commands directly:
 | Claude Code | `/spellwarden:scan-before-install <target>` | Scans a repository, a folder or an MCP server entry |
 | Gemini CLI | `/spellwarden:scan <target>` | The same |
 | Gemini CLI | `/spellwarden:workstation` | Scans this machine's agent setup (`scan --user`) |
+| Cursor | Ask the agent, as above | The skill `scan-before-install` |
 
 The agent reports the result (passed, failed or incomplete), each critical and high finding with its file and line, and a link to each rule's page, which explains how to fix it. When a scan fails or is incomplete, the agent asks you before it installs anything.
 
