@@ -4,7 +4,7 @@ Check an agent skill, plugin, marketplace, extension or MCP server before you in
 
 The scanner checks skills, Claude Code plugins and marketplaces, hooks, MCP client configurations, instruction files such as `AGENTS.md`, `CLAUDE.md` and `GEMINI.md`, and A2A agent cards against its published rules, each mapped to the OWASP lists for agents and MCP. It reads files and never runs what it reads. A passed scan means that no rule found a problem; it does not prove the content is safe.
 
-The same repository is a Gemini CLI extension (at its root) and a Claude Code marketplace with two plugins: `spellwarden`, the scanner skill (`plugins/spellwarden`), and `spellwarden-guard`, an optional confirmation hook (`plugins/spellwarden-guard`).
+The same repository is a Gemini CLI extension (at its root) and a Claude Code marketplace with two plugins: `spellwarden`, the scanner skill (`plugins/spellwarden`), and `spellwarden-install-guard`, an optional confirmation hook (`plugins/spellwarden-install-guard`).
 
 ## Install
 
@@ -13,7 +13,7 @@ The same repository is a Gemini CLI extension (at its root) and a Claude Code ma
 ```
 /plugin marketplace add spellwarden-ai/agent-plugin
 /plugin install spellwarden@spellwarden
-/plugin install spellwarden-guard@spellwarden   # optional: the confirmation hook
+/plugin install spellwarden-install-guard@spellwarden   # optional: the confirmation hook
 ```
 
 **Gemini CLI**
@@ -49,7 +49,7 @@ The agent reports the result (passed, failed or incomplete), each critical and h
 - **A probe, only if you agree.** For a remote MCP server, the agent offers `--probe`, which connects to that server's address without credentials to read its tool list and sign-in metadata.
 - **Never by default:** `--analyze`, which sends content to a model endpoint you name, and `--upload`, which sends results to a Spellwarden organisation. The agent uses them only when you ask for them by name.
 
-**Claude Code only: the optional confirmation hook (`spellwarden-guard`).** When Claude itself is about to run `claude plugin install`, `claude plugin marketplace add`, `claude mcp add`, `claude mcp add-json`, `npx skills add` or `gemini extensions install`, or to edit or write a `.mcp.json` file, a `PreToolUse` hook asks you to confirm and suggests a scan first. The hook is a shell script: it reads the tool call Claude Code passes it, runs nothing from it, and prints one fixed answer when the call is one of these. It stays quiet for the skill's own scan copy, a `.mcp.json` inside a temporary directory named `spellwarden-scan-*`. Installs you type yourself, such as `/plugin install`, are not tool calls, so the hook does not see them. To turn the hook off, disable `spellwarden-guard`.
+**Claude Code only: the optional confirmation hook (`spellwarden-install-guard`).** When Claude itself is about to run `claude plugin install`, `claude plugin marketplace add`, `claude mcp add`, `claude mcp add-json`, `npx skills add` or `gemini extensions install`, or to edit or write a `.mcp.json` file, a `PreToolUse` hook asks you to confirm and suggests a scan first. The hook is a shell script: it reads the tool call Claude Code passes it, runs nothing from it, and prints one fixed answer when the call is one of these. It stays quiet for the skill's own scan copy, a `.mcp.json` inside a temporary directory named `spellwarden-scan-*`. Installs you type yourself, such as `/plugin install`, are not tool calls, so the hook does not see them. To turn the hook off, disable `spellwarden-install-guard`.
 
 This plugin stores no data and has no account. The hosted Spellwarden product is separate and is not needed here.
 

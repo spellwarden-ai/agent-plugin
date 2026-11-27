@@ -1,8 +1,12 @@
 # Changelog
 
+## 1.1.1 (2026-11-27)
+
+- The optional hook plugin is renamed `spellwarden-install-guard` (`plugins/spellwarden-install-guard`), so it isn't confused with the policy hook `spellwarden_guard.py` from the Spellwarden docs. Install `spellwarden-install-guard@spellwarden`. Still runs the scanner `spellwarden==1.24.0`.
+
 ## 1.1.0 (2026-11-27)
 
-- Claude Code: the marketplace now holds two plugins. `spellwarden` (`plugins/spellwarden`) is the scanner skill alone, the version submitted to the Claude plugin directory, which accepts no hooks from organisations it hasn't verified. The confirmation hook moves to the optional `spellwarden-guard` plugin (`plugins/spellwarden-guard`), and its command now names its interpreter (`sh`). Install `spellwarden-guard@spellwarden` to keep the hook. Still runs the scanner `spellwarden==1.24.0`.
+- Claude Code: the marketplace now holds two plugins. `spellwarden` (`plugins/spellwarden`) is the scanner skill alone, the version submitted to the Claude plugin directory, which accepts no hooks from organisations it hasn't verified. The confirmation hook moves to the optional `spellwarden-install-guard` plugin (`plugins/spellwarden-install-guard`), and its command now names its interpreter (`sh`). Install `spellwarden-install-guard@spellwarden` to keep the hook. Still runs the scanner `spellwarden==1.24.0`.
 - Gemini CLI: no change beyond the version.
 
 ## 1.0.1 (2026-11-27)

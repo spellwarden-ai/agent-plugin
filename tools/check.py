@@ -11,7 +11,7 @@ root = pathlib.Path(__file__).resolve().parent.parent
 problems = []
 
 plugin = json.loads((root / "plugins/spellwarden/.claude-plugin/plugin.json").read_text())
-guard = json.loads((root / "plugins/spellwarden-guard/.claude-plugin/plugin.json").read_text())
+guard = json.loads((root / "plugins/spellwarden-install-guard/.claude-plugin/plugin.json").read_text())
 gemini = json.loads((root / "gemini-extension.json").read_text())
 market = json.loads((root / ".claude-plugin/marketplace.json").read_text())
 skill = (root / "skills/scan-before-install/SKILL.md").read_text()
@@ -23,7 +23,7 @@ skill_version = re.search(r"^  version: (\S+)$", skill, re.M)
 first_entry = re.search(r"^## (\S+) ", changelog, re.M)
 for where, value in [
     ("gemini-extension.json version", gemini["version"]),
-    ("spellwarden-guard plugin.json version", guard["version"]),
+    ("spellwarden-install-guard plugin.json version", guard["version"]),
     ("SKILL.md metadata.version", skill_version and skill_version.group(1)),
     ("CHANGELOG.md first entry", first_entry and first_entry.group(1)),
 ]:
@@ -31,7 +31,7 @@ for where, value in [
         problems.append(f"{where} is {value}, plugin.json says {version}")
 
 if plugin["name"] != gemini["name"] or [(p["name"], p["source"]) for p in market["plugins"]] != [
-    (plugin["name"], "./plugins/spellwarden"), (guard["name"], "./plugins/spellwarden-guard")]:
+    (plugin["name"], "./plugins/spellwarden"), (guard["name"], "./plugins/spellwarden-install-guard")]:
     problems.append("plugin, extension and marketplace names or sources differ")
 
 # The Claude directory takes the skill plugin as plugins/spellwarden. It accepts no hooks,
@@ -61,7 +61,7 @@ else:
     if f"version {scanner}" not in skill:
         problems.append(f"SKILL.md text does not name version {scanner}")
 
-json.loads((root / "plugins/spellwarden-guard/hooks/hooks.json").read_text())
+json.loads((root / "plugins/spellwarden-install-guard/hooks/hooks.json").read_text())
 if (root / "hooks/hooks.json").exists() or (root / ".claude-plugin/plugin.json").exists():
     problems.append("the root must hold no Claude plugin or hooks/hooks.json (Gemini CLI reads hooks/hooks.json)")
 
