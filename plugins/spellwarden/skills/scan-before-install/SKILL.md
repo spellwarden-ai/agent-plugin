@@ -3,9 +3,9 @@ name: scan-before-install
 description: Use before installing or enabling an agent skill, a Claude Code plugin or marketplace, a Gemini CLI extension or an MCP server, before adding a server to .mcp.json or another MCP client configuration, or when the user asks to check the agent setup of this machine. Runs the open-source Spellwarden scanner on this machine and reports what it found, so the user can decide. Requests such as "check this skill before I install it", "is this MCP server safe to add", "scan this plugin" or "check my agent setup".
 license: Apache-2.0
 metadata:
-  version: 1.4.0
+  version: 1.5.0
   author: Spellwarden
-  scanner: spellwarden==1.26.0
+  scanner: spellwarden==1.27.0
 ---
 
 # Scan before install
@@ -16,10 +16,10 @@ Use this skill before something new is installed or enabled, and whenever the us
 
 ## 1. Pick the runner
 
-The scanner is the Python package `spellwarden`, pinned to version 1.26.0. Use the first of these that is installed:
+The scanner is the Python package `spellwarden`, pinned to version 1.27.0. Use the first of these that is installed:
 
-1. `uvx spellwarden==1.26.0 scan <target>`
-2. `pipx run --spec spellwarden==1.26.0 spellwarden scan <target>`
+1. `uvx spellwarden==1.27.0 scan <target>`
+2. `pipx run --spec spellwarden==1.27.0 spellwarden scan <target>`
 
 If neither `uv` nor `pipx` is installed, tell the user and stop. Do not install a tool without asking. Either runner downloads the package from PyPI the first time.
 

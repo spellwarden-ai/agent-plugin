@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.5.0 (2026-11-27)
+
+- Runs the scanner `spellwarden==1.27.0` (68 rules), up from 1.26.0. SW-SKL-010 now reports binary content only: a readable script committed as executable is no longer called a bundled binary, and is read by the script rules instead. The repository's own CI scan uses the Spellwarden action v1.27.0.
+
 ## 1.4.0 (2026-11-27)
 
 - Runs the scanner `spellwarden==1.26.0` (68 rules, the same as 1.25.0), up from 1.25.0. The scan's findings are unchanged; 1.26.0 adds links to the rule pages in its Markdown report, which the skill does not use. The repository's own CI scan uses the Spellwarden action v1.26.0.
